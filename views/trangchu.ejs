@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NODEJS+SOCKETIO</title>
+        <script src="jquery.js">
+        </script>
+
+        <script src="socket.io/socket.io.js">
+        </script>
+        <script>
+
+            //connect server
+            const socket = io("http://localhost:3000");
+            socket.on("server-send-data",function(data){
+                $("#noidung").append(data+",");
+            })
+         $(document).ready(function(){
+              $("#mrA").click(function(){
+                  socket.emit("client-send-data","hello")
+              })
+         })
+        </script>
+    </head>
+    <body>
+         <div id="mrA">
+      click server
+         </div>
+         <h1 id="noidung"></h1>
+
+    </body>
+</html>
