@@ -18,14 +18,42 @@
               $("#mrA").click(function(){
                   socket.emit("client-send-data","hello")
               })
+
+            $("#do").click(function(){
+                socket.emit("send-color","red");
+            })
+            $("#xanh").click(function(){
+                socket.emit("send-color","blue");
+            })
+            $("#vang").click(function(){
+                socket.emit("send-color","yellow");
+            })
          })
         </script>
+       <style>
+         #do,#xanh,#vang {
+              width: 300px; height: 70px;
+         };
+         #do{
+            background-color:red ;
+         };
+         #xanh{
+             background-color: blue;
+         };
+         #vang{
+             background-color: yellow;
+         }
+        </style>
     </head>
-    <body>
+    <body bgcolor="pink">
          <div id="mrA">
-      click server
+         click server
          </div>
-         <h1 id="noidung"></h1>
+         <h1 id="noidung"></h1> 
+
+         <!-- <div id="do">ffff</div>
+         <div id="xanh"></div>
+         <div id="vang"></div> -->
 
     </body>
 </html>

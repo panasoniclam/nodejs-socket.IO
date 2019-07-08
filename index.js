@@ -18,8 +18,18 @@ io.on("connection",function(socket){
     })
     socket.on("client-send-data",function(data){
         console.log(data);
-        io.sockets.emit("server-send-data",data+"888")
-    })
+        //server tra ve cho tat ca
+        // io.sockets.emit("server-send-data",data+"888")
+        //server tra ve cho thang yeu cau
+        // socket.emit("server-send-data",data+"88888");
+        //server tra ve cho tat ca tru ngouoi yeu cau
+        socket.broadcast.emit("server-send-data",data+'9999');
+        io.to(socket.id).emit("server-send-data")
+       
+    }) 
+    socket.on("send-color",function(data){
+            console.log(data)
+        })
 })
 app.get('/',(rep,res)=>{
     res.render("trangchu");
